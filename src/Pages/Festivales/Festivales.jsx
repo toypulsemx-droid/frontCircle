@@ -17,8 +17,8 @@ export const Festivales = () => {
           <div className="hedaer_conciertos">
             <img src={imagesApp[2]?.URL} alt={imagesApp[1]?.alt} />
             <div className="text_header_conciertos">
-              <h2>Donde la música se vive al máximo con circulo escena</h2>
-              <h5>www.circulo-escena.com</h5>
+              <h2>Donde la música se vive al máximo con CIRCLE TICKETS</h2>
+              <h5>www.circletickets.store</h5>
             </div>
           </div>
           <CardsEevents titulo="Festivales" evento={festival} />

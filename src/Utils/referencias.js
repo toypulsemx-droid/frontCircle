@@ -223,6 +223,13 @@
     comment: "Me dio mucha confianza todo el proceso 🔒",
     date: "08-FEBRERO-2026"
   },
+  {
+    name: "AURORA Avila",
+    title: "Compra confirmo",
+    rating: 5,
+    comment: "Mis boletos de BTS para el 10 ya los teng gracias 🎟️🎟️🎟️",
+    date: "08-MARZO-2026"
+  },
 
   // ---- 18 más para completar 50 ----
 

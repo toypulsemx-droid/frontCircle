@@ -90,8 +90,9 @@ export const Navbar = () => {
   const links = [
     { to: "/",           label: "Inicio",     end: true },
     { to: "/conciertos", label: "Conciertos",  end: true },
-    { to: "/festivales", label: "Festivales",  end: true },
     { to: "/deportes",   label: "Deportes",    end: true },
+    { to: "/festivales", label: "Festivales",  end: true },
+    
   ];
 
   return (
@@ -103,7 +104,7 @@ export const Navbar = () => {
           <div className="nb-logo">
             <NavLink to="/" className="nb-logo__link">
               <img src={imagesApp[0].URL} alt={imagesApp[0].alt} className="nb-logo__img" />
-              <span className="nb-logo__text">Circulo Escena</span>
+              <span className="nb-logo__text">Circle tickets</span>
             </NavLink>
           </div>
 

@@ -1,13 +1,32 @@
 import React, { useMemo } from "react";
 import "../Styles/destacadosHome.css";
 import { getFilterPriority } from "../../../Utils/filtersApp";
+import { useNavigate } from "react-router-dom";
 
 const LAYOUT_CLASS = ["card--tall", "card--side", "card--side", "card--side", "card--side", "card--wide"];
 
 export const EventsDestacados = ({ eventos }) => {
+
+  const navigate = useNavigate();
+  
   const events = useMemo(() => {
     return getFilterPriority(eventos, "destacado", 6);
   }, [eventos]);
+
+  const generateSlug = (text) =>
+    text
+      .toLowerCase()
+      .normalize("NFD")
+      .replace(/[\u0300-\u036f]/g, "")
+      .replace(/[^a-z0-9\s-]/g, "")
+      .trim()
+      .replace(/\s+/g, "-");
+
+const handleSelectEvent = (evento) => {
+  const artistaSlug   = generateSlug(evento.artista)
+  const fechaSlug = generateSlug(evento.fecha)
+  navigate(`/${evento._id}/${artistaSlug}-${fechaSlug}`)
+}
 
   return (
     <section className="container-destacados">
@@ -67,7 +86,7 @@ export const EventsDestacados = ({ eventos }) => {
                   </div>
                 </div>
 
-                <button className="card__cta">
+                <button className="card__cta" onClick={() => handleSelectEvent(evento)}>
                   {isTall ? "Comprar boletos" : "Comprar"}
                   <span className="card__cta-arrow"><IconArrow /></span>
                 </button>

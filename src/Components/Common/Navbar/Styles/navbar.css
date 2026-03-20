@@ -98,7 +98,7 @@
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 1.5px;
-  color: rgba(255, 255, 255, 0.55);
+  color: var(--color--links);
   padding-bottom: 4px;
   transition: color .2s ease;
 }
@@ -256,7 +256,7 @@
     padding: .9rem 2rem;
     font-size: .8rem;
     border-bottom: 1px solid rgba(255, 255, 255, 0.04);
-    color: rgba(255, 255, 255, 0.5);
+    color: var(--color--links);
   }
 
   .nb-link::after {
@@ -290,9 +290,10 @@
 
 .nb-user-dropdown {
   position: absolute;
+  justify-content: center;
   top: calc(100% + 14px);
-  right: 0;
-  width: 260px;
+  right: -50px;
+  width: 350px;
   background: var(--color--secundario);
   border: 1px solid rgba(255,255,255,0.08);
   border-radius: 14px;
@@ -303,6 +304,7 @@
   box-shadow: 0 16px 40px rgba(0,0,0,0.4);
   z-index: 200;
   animation: dropIn 0.2s ease both;
+  box-sizing: border-box;
 }
 
 @keyframes dropIn {
@@ -370,6 +372,8 @@
   font-weight: 600;
   cursor: pointer;
   transition: all 0.2s;
+ 
+  
 }
 
 .nb-dropdown__btn:hover {
@@ -427,14 +431,18 @@
 .nb-dropdown__divider {
   height: 1px;
   background: rgba(255,255,255,0.06);
-  margin: 2px 0;
+  margin: 2px 2px;
 }
+
+
 
 .nb-dropdown__btn--nav {
   text-decoration: none;
   text-align: left;
   display: block;
   color: var(--color--text-2);
+  
+  box-sizing: border-box;
 }
 
 .nb-dropdown__btn--nav:hover {

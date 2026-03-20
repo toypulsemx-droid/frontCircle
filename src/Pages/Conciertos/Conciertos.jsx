@@ -19,8 +19,8 @@ export const Conciertos = () => {
             <div className="hedaer_conciertos">
                 <img src={imagesApp[1]?.URL} alt={imagesApp[1]?.alt} />
                 <div className="text_header_conciertos">
-                    <h2>Vive los mejores conciertos con Circulo Escena.</h2>            
-                    <h5>www.circulo-escena.com</h5>        
+                    <h2>Vive los mejores conciertos con CIRCLE TICKETS.</h2>            
+                    <h5>www.circletickets.store</h5>        
                 </div>
                                
             </div>   

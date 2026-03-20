@@ -808,4 +808,7 @@ font-weight: 400;
   .es-hero__pills {
     display: none;
   }
+  .card_single_text{
+    width: 90%;
+  }
 }

@@ -61,3 +61,13 @@ export const generarNumeroPedido = () => {
   const nums = Math.floor(Math.random() * 9_999_999_999).toString().padStart(10, '0')
   return `ORD-${nums}`
 }
+
+export const socialLinks = {
+  facebook:  'https://www.facebook.com/profile.php?id=61581156462137',
+  instagram: '',
+  tiktok:    '',
+  twitter:   '',
+  youtube:   '',
+  whatsapp:  'https://wa.me/5215544620406',
+}
+ 

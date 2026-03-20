@@ -4,6 +4,7 @@ import { imagesApp } from "../../../Utils/imgApp";
 import { NavLink } from "react-router-dom";
 import { VscMail } from "react-icons/vsc";
 import { FaFacebook,FaFacebookMessenger,FaWhatsapp ,FaInstagram } from "react-icons/fa6";
+import {socialLinks} from '../../../Utils/funtionsApp'
 
 export const Footer = () => {
   const [msj, setMsj] = useState(false);
@@ -27,7 +28,7 @@ const handleSendMsj = () => {
         <footer className="footer">
           <div className="logo_footer">
             <img src={imagesApp[0]?.URL} alt={imagesApp[0]?.alt} />
-            <h2>CIRCULO ESCENA</h2>
+            <h2>CIRCLE TICKETS</h2>
           </div>
           <ul className="categorias_footer">
             <li className="categorias_title">
@@ -94,19 +95,19 @@ const handleSendMsj = () => {
               <ul className="icons_social">
                 <li className="title_social">Nuestras redes sociales</li>
                 <li className="iconos_social">
-                  <FaFacebook/>
-                  <FaFacebookMessenger/>
-                  <FaWhatsapp/>
+                  <a  href={socialLinks.facebook} target="_blank" rel="noreferrer"><FaFacebook/></a>
+                  <a  href={socialLinks.facebook} target="_blank" rel="noreferrer"><FaFacebookMessenger/></a>
+                  <a href={socialLinks.whatsapp} target="_blank" rel="noreferrer"><FaWhatsapp/></a>
                   <FaInstagram/>
                 </li>
-                <li className="item_mail">store@circulo-escena.com</li>                
+                <li className="item_mail">hola@circletickets.store</li>                
               </ul>
               
           </div>
           
         </footer>
         <div className="copy_footer">
-          <span >CIRCULO ESCENA © 2025 | Todos los derechos reservados.</span>
+          <span >CIRCLE TICKETS © 2025 | Todos los derechos reservados.</span>
         </div>
         
       </div>
