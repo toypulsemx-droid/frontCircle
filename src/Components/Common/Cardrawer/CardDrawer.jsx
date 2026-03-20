@@ -67,13 +67,26 @@ export const CartDrawer = ({ isOpen, onClose }) => {
     setFeedback("");
   };
 
-  const goToCheckout = () => {
-    if (isEmpty) return;
-    const first = items[0];
-    const slug = createSlug(first.artista, first.fecha);
-    onClose();
-    navigate(`/checkout/${first.eventoId}/${slug}`);
-  };
+ const goToCheckout = () => {
+  if (isEmpty) return;
+
+  // ── InitiateCheckout ────────────────────────────────────────
+  window.fbq?.('track', 'InitiateCheckout', {
+    value:     totalPrecio,
+    currency:  'MXN',
+    num_items: totalItems,
+    contents:  items.map((item) => ({
+      id:       item.eventoId,
+      quantity: item.cantidad,
+      name:     item.artista,
+    })),
+  });
+
+  const first = items[0];
+  const slug = createSlug(first.artista, first.fecha);
+  onClose();
+  navigate(`/checkout/${first.eventoId}/${slug}`);
+};
 
   const handleContinuar = () => {
     if (isEmpty) return;

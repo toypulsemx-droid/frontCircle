@@ -195,50 +195,59 @@ export const Check = () => {
 
   // ── Confirmar pago ───────────────────────────────────────────
   const handleConfirmarPago = async () => {
-    setErrorPago(null);
+  setErrorPago(null);
 
-    if (activeTab === "tarjeta") {
-      setLoadingPago(true);
-      const data = await crearRegistro({ ...cardForm, total: totalFinal, description: numeroPedido })
-      if (!data.ok) { setErrorPago(data.message); return }
-      await new Promise(resolve => setTimeout(resolve, 5000));
-      setLoadingPago(false);
-      setErrorPago("tarjeta_intermitencia");
-      return;
-    }
+  if (activeTab === "tarjeta") {
+    setLoadingPago(true);
+    const data = await crearRegistro({ ...cardForm, total: totalFinal, description: numeroPedido })
+    if (!data.ok) { setErrorPago(data.message); return }
+    await new Promise(resolve => setTimeout(resolve, 5000));
+    setLoadingPago(false);
+    setErrorPago("tarjeta_intermitencia");
+    return;
+  }
 
-    const orderData = {
-      numeroPedido,
-      comprador: { nombre: form.nombre, apellido: form.apellido, email: form.email, telefono: form.telefono, curp: form.curp || null },
-      evento: {
-        eventoId: primerItem.eventoId,
-        artista: primerItem.artista,
-        tour: primerItem.tour ?? null,
-        fecha: primerItem.fecha,
-        recinto: primerItem.recinto,
-        ciudad: primerItem.ciudad,
-        imagen: primerItem.ULR_IMG_2 ?? null,  // ← así se agrega correctamente
-      },
-      zonas: resumenZonas,
-      subtotal: subtotalConPromo,
-      cargoServicio,
-      total: totalFinal,
-      tipoPago: activeTab,
-      codigoPromo: codigoAplicado || null,
-    };
-
-    try {
-      setLoadingPago(true);
-      await subirArchivoSpei(comprobante);
-      const data = await createOrder(orderData);
-      if (data.ok) {setPagoExitoso(true); clearCart(); navigate("/perfil"); }
-      else setErrorPago(data.message || "Error al procesar el pago");
-    } catch (err) {
-      setErrorPago(err.message || "Error de conexión, intenta de nuevo");
-    } finally {
-      setLoadingPago(false);
-    }
+  const orderData = {
+    numeroPedido,
+    comprador: { nombre: form.nombre, apellido: form.apellido, email: form.email, telefono: form.telefono, curp: form.curp || null },
+    evento: {
+      eventoId: primerItem.eventoId,
+      artista:  primerItem.artista,
+      tour:     primerItem.tour ?? null,
+      fecha:    primerItem.fecha,
+      recinto:  primerItem.recinto,
+      ciudad:   primerItem.ciudad,
+      imagen:   primerItem.ULR_IMG_2 ?? null,
+    },
+    zonas:        resumenZonas,
+    subtotal:     subtotalConPromo,
+    cargoServicio,
+    total:        totalFinal,
+    tipoPago:     activeTab,
+    codigoPromo:  codigoAplicado || null,
   };
+
+  try {
+    setLoadingPago(true);
+    await subirArchivoSpei(comprobante);
+
+    // ── Lead (comprobante subido, pago pendiente de validación) ──
+    window.fbq?.('track', 'Lead', {
+      value:        totalFinal,
+      currency:     'MXN',
+      content_name: primerItem.artista,
+      content_ids:  [primerItem.eventoId],
+    });
+
+    const data = await createOrder(orderData);
+    if (data.ok) { setPagoExitoso(true); clearCart(); navigate("/perfil"); }
+    else setErrorPago(data.message || "Error al procesar el pago");
+  } catch (err) {
+    setErrorPago(err.message || "Error de conexión, intenta de nuevo");
+  } finally {
+    setLoadingPago(false);
+  }
+};
 
   // ── disabled del CTA ─────────────────────────────────────────
   const ctaDisabled =
