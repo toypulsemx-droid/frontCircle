@@ -38,7 +38,7 @@ const handleSelectEvent = (evento) => {
                         <button className="bnt_single" onClick={() => handleSelectEvent(evento)}>Comprar</button>
                     </div>
                     <div className="img_card_single">
-                        <img src={evento.ULR_IMG_2} alt={evento.artista} />
+                        <img src={evento.ULR_IMG_1} alt={evento.artista} />
                     </div>
                 </div>
             ))
