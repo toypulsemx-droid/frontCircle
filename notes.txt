@@ -1,0 +1,60 @@
+Body (Fondo)	#0F172A	Midnight Blue	Fondo principal de toda la página.
+Navbar / Cards	#1E293B	Slate Blue	Superficies que "flotan" sobre el fondo.
+Texto Principal	#F8FAFC	Ghost White	Títulos y párrafos importantes.
+Texto Secundario	#94A3B8	Cool Gray	Descripciones cortas, fechas o "letras chiquitas".
+Botón (CTA)	#06B6D4	Electric Cyan	El botón de "Comprar" o "Reservar".
+Bordes / Divisores	#334155	Steel Blue	Líneas sutiles para separar secciones.
+
+
+
+📢 Bloques de Información (Anuncios/Alertas)
+Para que los avisos no rompan la estética profesional, no uses colores sólidos brillantes. Usa un fondo oscuro con un borde de color y texto claro:
+
+Información General (Ej. "Nueva zona disponible"):
+
+Fondo: #1E293B (Igual que el navbar).
+
+Borde izquierdo (4px): #3B82F6 (Azul vibrante).
+
+Icono/Texto: #93C5FD.
+
+Aviso Urgente (Ej. "Pocos boletos"):
+
+Fondo: #451A03 (Un café/naranja muy oscuro, casi negro).
+
+Borde izquierdo (4px): #F97316 (Naranja).
+
+Texto: #FDBA74.
+
+🚀 Tres detalles para que NO parezca proyecto escolar:
+El Navbar "Glassmorphism": En lugar de un color sólido, usa el color #1E293B con una opacidad del 80% y aplica un filtro de desenfoque (backdrop-filter: blur(10px);). Esto da un aspecto de interfaz de Apple o Windows 11 muy moderno.
+
+Botones con personalidad: Al botón Cian (#06B6D4), ponle el texto en el azul oscuro del body (#0F172A). El contraste de "oscuro sobre luz" se ve mucho más profesional que el clásico "blanco sobre color".
+
+Sombras suaves: No uses sombras negras (#000000). Usa sombras basadas en el azul del fondo, por ejemplo: rgba(2, 6, 23, 0.5). Esto hace que las sombras se vean naturales y no "sucias".
+
+
+
+Fondo principal — #F8FAFC
+Fondo cards — #FFFFFF
+Bordes / divisores — #E5E7EB
+Texto principal — #111827
+Texto secundario — #9CA3AF
+
+Navbar fondo — #0F172A
+Navbar links — #F9FAFB
+Navbar hover — #10B981
+
+Botón primario — #10B981
+Botón primario hover — #059669
+Botón secundario — #1E3A8A
+Botón deshabilitado — #9CA3AF
+
+Input fondo — #FFFFFF
+Input borde — #D1D5DB
+Input focus — #10B981
+Error — #DC2626
+
+Precio destacado — #10B981
+Total compra — #0F172A
+Advertencia — #F59E0B

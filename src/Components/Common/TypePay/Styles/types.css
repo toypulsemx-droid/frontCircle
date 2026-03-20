@@ -1,0 +1,40 @@
+.container_types_pay{
+    width: 100%;
+    max-width: 1200px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+}
+
+.container_types_pay span{
+    color: var(--color--text-base);
+    font-size: 20px;
+    text-align: center;
+    margin-bottom: 1rem;
+    font-weight: 500;
+}
+
+.list-types{    
+    list-style: none;
+    display: flex;
+    box-sizing: border-box;
+    width: 70%;
+    justify-content: space-evenly;
+    margin: auto;
+}
+
+.list-types li{
+    width: 50PX;
+    
+}
+
+.list-types img{
+    width: 100%;
+}
+
+@media(max-width: 768px){
+    .list-types{
+        width: 100%;
+    }
+}

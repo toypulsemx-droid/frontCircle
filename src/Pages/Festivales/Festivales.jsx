@@ -1,0 +1,29 @@
+import React from "react";
+import { imagesApp } from "../../Utils/imgApp";
+// import './Style/conciertos.css'
+import { CardsEevents } from "../../Components/Common/CardsEvents/CardsEevents";
+import { useEvents } from "../../Contexts/EventsContext";
+import { filerForPage } from "../../Utils/filtersApp";
+
+export const Festivales = () => {
+  const { events, loading, error } = useEvents();
+
+  const festival = filerForPage(events, "Festival");
+
+  return (
+    <>
+      <div className="container_conciertos">
+        <div className="wrap_conciertos">
+          <div className="hedaer_conciertos">
+            <img src={imagesApp[2]?.URL} alt={imagesApp[1]?.alt} />
+            <div className="text_header_conciertos">
+              <h2>Donde la música se vive al máximo con circulo escena</h2>
+              <h5>www.circulo-escena.com</h5>
+            </div>
+          </div>
+          <CardsEevents titulo="Festivales" evento={festival} />
+        </div>
+      </div>
+    </>
+  );
+};

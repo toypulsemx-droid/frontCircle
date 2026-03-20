@@ -1,0 +1,445 @@
+/* ═══════════════════════════════════════════════
+   cards_events.css — Rediseño
+   Todas las clases son idénticas al original.
+   No se modificó ninguna lógica ni JSX.
+═══════════════════════════════════════════════ */
+
+/* ─── EMPTY STATE ─── */
+.messenge_home {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 1200px;
+  margin: 4rem auto;
+  padding: 0 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.2rem;
+  text-align: center;
+  font-family: var(--font-family-base);
+}
+
+.messenge_home h1 {
+  color: var(--color--text-2);
+  font-size: 22px;
+  font-weight: 500;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  opacity: 0.5;
+}
+
+.messenge_home a {
+  color: var(--color--links);
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  border-bottom: 1px solid rgba(6, 182, 212, 0.3);
+  padding-bottom: 2px;
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.messenge_home a:hover {
+  color: var(--color--links-active);
+  border-color: var(--color--links-active);
+}
+
+/* ─── PAGE WRAPPER ─── */
+.container_card_page {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 52px 40px 80px;
+  display: flex;
+  flex-direction: column;
+  font-family: var(--font-family-base);
+}
+
+/* ─── HEADER ROW ─── */
+.header_events_card {
+  display: flex;
+  flex-direction: row;
+  gap: 1.5rem;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 40px;
+  box-sizing: border-box;
+}
+
+.container_card_page h1 {
+  margin: 0;
+  font-size: 48px;
+  font-weight: 900;
+  letter-spacing: -2px;
+  line-height: 1;
+  /* gradient text */
+  background: linear-gradient(135deg, var(--color--text-1) 50%, rgba(6, 182, 212, 0.5) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ─── SEARCH INPUT ─── */
+.input_search_events {
+  width: 38%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+  flex-shrink: 0;
+}
+
+.input_search_events input {
+  width: 100%;
+  height: 42px;
+  border-radius: 100px;
+  padding: 0 42px 0 18px;
+  background: var(--color--secundario);
+  color: var(--color--text-1);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-sizing: border-box;
+  font-family: var(--font-family-base);
+  font-size: 13px;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.input_search_events input::placeholder {
+  color: var(--color--text-2);
+  opacity: 0.4;
+  font-size: 13px;
+}
+
+.input_search_events input:focus {
+  outline: none;
+  border-color: rgba(6, 182, 212, 0.5);
+  box-shadow: 0 0 0 3px rgba(6, 182, 212, 0.1);
+}
+
+.input_search_events svg {
+  position: absolute;
+  right: 14px;
+  font-size: 16px;
+  color: var(--color--links);
+  opacity: 0.7;
+  pointer-events: none;
+}
+
+/* ─── CARDS GRID ─── */
+.contenedor_cards_events {
+  width: 100%;
+  max-width: 1200px;
+  box-sizing: border-box;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  padding: 0;
+}
+
+/* ─── CARD ─── */
+.card_evento {
+  width: 100%;
+  height: auto;
+  box-sizing: border-box;
+  border-radius: 16px;
+  background: var(--color--secundario);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  cursor: pointer;
+  transition:
+    transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 0.28s ease,
+    box-shadow 0.28s ease;
+  /* stagger via nth-child in animation below */
+  animation: cardPageIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.card_evento:hover {
+  transform: translateY(-6px);
+  border-color: rgba(6, 182, 212, 0.3);
+  box-shadow:
+    0 24px 60px rgba(0, 0, 0, 0.45),
+    0 0 0 1px rgba(6, 182, 212, 0.1);
+}
+
+@keyframes cardPageIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.card_evento:nth-child(1) { animation-delay: 0.04s; }
+.card_evento:nth-child(2) { animation-delay: 0.09s; }
+.card_evento:nth-child(3) { animation-delay: 0.14s; }
+.card_evento:nth-child(4) { animation-delay: 0.19s; }
+.card_evento:nth-child(5) { animation-delay: 0.24s; }
+.card_evento:nth-child(6) { animation-delay: 0.29s; }
+.card_evento:nth-child(7) { animation-delay: 0.34s; }
+.card_evento:nth-child(8) { animation-delay: 0.39s; }
+.card_evento:nth-child(9) { animation-delay: 0.44s; }
+
+/* ─── IMAGE AREA ─── */
+.img_card {
+  width: 100%;
+  height: 220px;
+  box-sizing: border-box;
+  border-radius: 0;
+  overflow: hidden;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.img_card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), filter 0.4s ease;
+  filter: brightness(0.88) saturate(1.05);
+}
+
+.card_evento:hover .img_card img {
+  transform: scale(1.06);
+  filter: brightness(0.75) saturate(1.15);
+}
+
+/* Mask 1 — dark left diagonal (original clip-path preserved) */
+.mask_1 {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(10, 18, 37, 0.55) 0%, transparent 60%);
+  top: 0;
+  clip-path: polygon(0 0, 80% 0, 0% 100%, 0 100%);
+  z-index: 1;
+}
+
+/* Mask 2 — cyan corner accent (original clip-path preserved) */
+.mask_2 {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 246, 246, 0.18);
+  top: 0;
+  clip-path: polygon(100% 40%, 100% 100%, 50% 100%);
+  z-index: 1;
+  transition: opacity 0.3s ease;
+}
+
+.card_evento:hover .mask_2 {
+  opacity: 1.4;
+}
+
+/* Bottom fade overlay into card body */
+.img_card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  background: linear-gradient(
+    to bottom,
+    transparent 55%,
+    rgba(18, 29, 47, 0.9) 100%
+  );
+  pointer-events: none;
+}
+
+/* ─── TEXT BODY ─── */
+.text_card_title {
+  display: flex;
+  flex-direction: column;
+  padding: 16px 18px 24px;
+  gap: 4px;
+  flex: 1;
+}
+
+/* Artist */
+.text_card_title h1 {
+  color: var(--color--text-1);
+  font-size: 17px;
+  font-weight: 800;
+  letter-spacing: -0.3px;
+  line-height: 1.2;
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 100%;
+  box-sizing: border-box;
+  /* override gradient from container_card_page h1 */
+  background: none;
+  -webkit-background-clip: unset;
+  -webkit-text-fill-color: var(--color--text-1);
+  background-clip: unset;
+}
+
+/* Tour */
+.text_card_title h2 {
+  color: var(--color--text-2);
+  font-size: 13px;
+  font-weight: 400;
+  margin: 0 0 6px;
+  opacity: 0.65;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Date / venue / city */
+.text_card_title h3 {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  color: var(--color--text-2);
+  font-weight: 500;
+  font-size: 12px;
+  margin: 0;
+  opacity: 0.55;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Cyan divider before date group */
+.text_card_title h3:nth-of-type(1) {
+  margin-top: 6px;
+  padding-top: 10px;
+  border-top: 1px solid rgba(6, 182, 212, 0.12);
+}
+
+/* ─── BUY BUTTON ─── */
+.btn_card_evento {
+  display: flex;
+  justify-content: stretch;
+  width: 100%;
+  padding: 0 18px 18px;
+  box-sizing: border-box;
+  z-index: 3;
+  /* no longer absolute — stays in flow */
+  position: static;
+  bottom: auto;
+  left: auto;
+}
+
+.btn_card_evento button {
+  width: 100%;
+  padding: 11px 16px;
+  border-radius: 10px;
+  background: rgba(6, 182, 212, 0.1);
+  color: var(--color--links);
+  border: none;
+  outline: 1px solid rgba(6, 182, 212, 0.22);
+  font-family: var(--font-family-base);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+  cursor: pointer;
+  transition:
+    background 0.22s ease,
+    color 0.22s ease,
+    outline-color 0.22s ease,
+    box-shadow 0.22s ease,
+    transform 0.16s ease;
+}
+
+.btn_card_evento button:hover {
+  background: var(--color--links);
+  color: #000;
+  outline-color: var(--color--links);
+  box-shadow: 0 4px 20px rgba(6, 182, 212, 0.3);
+  transform: translateY(-1px);
+}
+
+.btn_card_evento button:active {
+  transform: translateY(0);
+  box-shadow: none;
+}
+
+/* ─── PAGINATION ─── */
+.btn_pages {
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 48px;
+}
+
+.btn_pages button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(6, 182, 212, 0.08);
+  border: 1px solid rgba(6, 182, 212, 0.2);
+  color: var(--color--links);
+  cursor: pointer;
+  font-size: 18px;
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease,
+    transform 0.16s ease;
+}
+
+.btn_pages button:hover:not(:disabled) {
+  background: var(--color--links);
+  color: #000;
+  border-color: var(--color--links);
+  transform: scale(1.08);
+}
+
+.btn_pages button:disabled {
+  opacity: 0.25;
+  cursor: not-allowed;
+  transform: none;
+  background: transparent;
+  border-color: rgba(255, 255, 255, 0.08);
+  color: var(--color--text-2);
+}
+
+.btn_pages span {
+  color: var(--color--text-2);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  opacity: 0.55;
+  min-width: 48px;
+  text-align: center;
+}
+
+/* ─── RESPONSIVE ─── */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .container_card_page { padding: 40px 28px 64px; }
+  .contenedor_cards_events { grid-template-columns: repeat(2, 1fr); }
+  .container_card_page h1 { font-size: 36px; }
+}
+
+@media (max-width: 768px) {
+  .container_card_page { padding: 32px 20px 56px; }
+
+  .header_events_card {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+
+  .input_search_events { width: 100%; }
+
+  .contenedor_cards_events { grid-template-columns: repeat(2, 1fr); gap: 14px; }
+
+  .container_card_page h1 { font-size: 32px; letter-spacing: -1px; }
+}
+
+@media (max-width: 520px) {
+  .contenedor_cards_events { grid-template-columns: 1fr; }
+  .img_card { height: 200px; }
+}

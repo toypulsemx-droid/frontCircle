@@ -1,0 +1,68 @@
+.container_conciertos{
+    width: 100%;
+    min-height: 60vh;
+    
+    box-sizing: border-box;
+}
+
+.wrap_conciertos{
+    width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+}
+
+.hedaer_conciertos{
+    width: 100%;
+    height: 250px;
+    overflow: hidden;
+    
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    
+}
+
+.hedaer_conciertos img{
+    width: 100%;
+    object-fit: cover;
+    
+}
+
+.text_header_conciertos{
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    position: absolute;
+    top: 0;
+    justify-content: center;
+    text-align: center;
+    align-items: center;    
+    display: flex;
+    flex-direction: column;
+    background-color: #121d2f67;
+    font-weight: 500;
+    letter-spacing: 2px;
+}
+
+.text_header_conciertos h2{
+    font-size: 40px;
+    color: var(--color--text-1);
+}
+
+.text_header_conciertos h5{
+    color: var(--color--text-1);
+    font-size: 20px;
+}
+
+@media (max-width:768px){
+    .hedaer_conciertos{
+        height: 150px;
+    }
+
+    .text_header_conciertos h2{
+        font-size: 25px;
+    }
+}

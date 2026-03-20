@@ -1,0 +1,114 @@
+.container_stamps{
+    width: 100%;
+    max-width: 1200px;
+    margin: auto;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+}
+
+.list_stamps{
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.stamp_item{
+    padding: 1rem;
+    border-radius: 30px;
+    width: 23%;
+    display: flex;
+    justify-content: center;
+    gap: .5rem;
+    align-items: center;
+    border: 1px solid var(--color--links);
+    background-color: var(--color--secundario);    
+    box-sizing: border-box;
+    box-shadow: 0 5px 20px rgba(6, 182, 212, 0.4);
+}
+
+.stamp_item svg{
+    width: 40px;
+    height: 40px;
+    font-size: 100%;
+    padding: 0;
+    color: var(--color--links);
+    
+}
+
+.stamp_item span{
+    font-size: 14px;
+    color: var(--color--text-base);    
+}
+
+.dotes{
+    display: none;
+}
+
+@media (max-width: 1200px){
+    .container_stamps{
+        padding: 0 1rem;
+    }
+}
+
+@media (max-width: 768px){
+    .container_stamps{
+        padding: 0 1rem;
+        
+        display: flex !important;
+        flex-direction: column;
+        box-sizing: border-box;
+        
+    }
+    .stamp_item{
+        display: none !important;
+        width: 48%;
+        height: 110px;
+        display: flex;        
+        justify-content: center;        
+        padding: auto;
+        text-align: center;
+        flex-direction: column;
+        
+    }
+
+    .list_stamps svg{
+        width: 100%;
+        margin: auto 0;
+    }
+
+    .list_stamps span{
+        font-size: 12px;
+    }
+
+    
+
+    .stamp_item.active{
+        display: flex !important;
+    }
+    
+    .dotes{
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+        width: 100%;
+       
+    }
+
+    .dote{
+        margin: 1rem 0;
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        opacity: .5;
+        background-color:var(--color--links);
+        cursor: pointer;
+    }
+
+    .dote.active{
+        opacity: 1;
+        background-color: var(--color--links-active);
+    }
+
+}

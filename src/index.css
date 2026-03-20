@@ -1,0 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Figtree:wght@300;400;500;600;700;800;900&display=swap');
+
+
+:root{
+  --font-family-base: 'Figtree', sans-serif;
+  --color--base:#0a1225;
+  --color--secundario:#121d2f;
+  --color--text-base:#F8FAFC;
+  --color--text-1:#f7f7f7;
+  --color--text-2:#d0d3d6;
+  --color--links:#06B6D4;
+  --color--links-active:#00f5f6;
+}
+
+
+*{
+  margin: 0;
+  padding: 0;
+}
+
+body{
+  
+  box-sizing: border-box;
+  font-family: "Segoe UI", system-ui, sans-serif;
+  background-color: var(--color--base);
+}
