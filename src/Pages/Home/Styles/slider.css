@@ -241,8 +241,8 @@
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  background: var(--color--links-active);
-  color: #060e1c;
+  background: var(--color--links);
+  color: var(--color--text-base);
   border: none;
   padding: 14px 28px;
   font-size: .92rem;
