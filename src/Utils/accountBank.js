@@ -3,9 +3,9 @@
 export const cuentasTransferencia = [
   {
     id: 1,
-    banco: "MERCADO PAGO W",
+    banco: "SPIN BY OXXO",
     beneficiario: "Promotora Circle Tickets SA de CV",
-    clabe: "722969020041511261",
+    clabe: "728969000171023300",
   },
   
 ];
