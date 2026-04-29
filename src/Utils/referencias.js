@@ -7,6 +7,13 @@
     date: "02-ABRIL-2026"
   },
   {
+    name: "Mixy Lome",
+    title: "Bangtan Sonyeondan",
+    rating: 4,
+    comment: "Me hicieron sufrir pero ya tengo mis boletos, por fin cumplire mis sueños 🥹🥹🥹",
+    date: "27-ABRIL-2026"
+  },
+  {
     name: "Romulo Zabala",
     title: "⚡⚡",
     rating: 5,
@@ -19,6 +26,20 @@
     rating: 5,
     comment: "aqui encuentro mis boletos cuando no hay para ver a mis aguilas",
     date: "10-ABRIL-2026"
+  },
+  {
+    name: "Pamela Rios",
+    title: "Tu falta de querer",
+    rating: 4,
+    comment: "los recomiendo desde Mérida ",
+    date: "11-ABRIL-2026"
+  },
+   {
+    name: "Jose Lopez Saavedra",
+    title: "DTMF",
+    rating: 5,
+    comment: "SOBRE LA HORA NOS VAMOS A VER AL CONEJO MALO, SUPER RECOMIENDO",
+    date: "19-DICIEMBRE-2025"
   },
   {
     name: "Kenia valdez",
