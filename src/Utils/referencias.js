@@ -7,6 +7,41 @@
     date: "02-ABRIL-2026"
   },
   {
+    name: "Romulo Zabala",
+    title: "⚡⚡",
+    rating: 5,
+    comment: "pense que ya no iria pero aqui consegui para ver a AC-DC mañana nos vemos en el GNP",
+    date: "06-ABRIL-2026"
+  },
+   {
+    name: "Eduardo J.",
+    title: "America de corazon",
+    rating: 5,
+    comment: "aqui encuentro mis boletos cuando no hay para ver a mis aguilas",
+    date: "10-ABRIL-2026"
+  },
+  {
+    name: "Kenia valdez",
+    title: "Tardado pero seguro",
+    rating: 4,
+    comment: "THE WEEKND, alla te voy, si los recomiendo gracias 👹👹👹👹👹👹",
+    date: "22-ABRIL-2026"
+  },
+  {
+    name: "Naynuñez Tapia",
+    title: "muy feliz",
+    rating: 4,
+    comment: "en la pagina tardo una semana, pero poor fin llego mi boleto, GRACIAS POR EL BOLETO PARA VER A MIS CHICOS I LOVE BTS",
+    date: "09-ABRIL-2026"
+  },
+  {
+    name: "Hugo Saldivar",
+    title: "Y si viene CR7",
+    rating: 3,
+    comment: "ya les compre mi boleto hay devoluciones NO VIENE MI COMANDANTE 😭 ",
+    date: "28-FEBRERO-2026"
+  },
+  {
     name: "María López",
     title: "Excelente experiencia",
     rating: 5,
