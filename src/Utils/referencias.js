@@ -1,4 +1,11 @@
  export const reviews = [
+   {
+    name: "Army Celeste",
+    title: "Muy feliz",
+    rating: 4,
+    comment: "Al inicio dudé, pero todo fue legítimo 🙂, nos vemos el 7 ARMYS",
+    date: "02-ABRIL-2026"
+  },
   {
     name: "María López",
     title: "Excelente experiencia",

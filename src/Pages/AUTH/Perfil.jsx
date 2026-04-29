@@ -10,6 +10,7 @@ const ESTATUS_CONFIG = {
   pagado:     { label: 'Confirmado', color: '#22c55e', bg: 'rgba(34,197,94,0.1)',   border: 'rgba(34,197,94,0.25)'  },
   cancelado:  { label: 'Cancelado',  color: '#ef4444', bg: 'rgba(239,68,68,0.1)',   border: 'rgba(239,68,68,0.25)'  },
   expirado:   { label: 'Expirado',   color: '#6b7280', bg: 'rgba(107,114,128,0.1)', border: 'rgba(107,114,128,0.25)'},
+  procesando:   { label: 'En proceso',   color: '#6b7280', bg: 'rgba(107,114,128,0.1)', border: 'rgba(107,114,128,0.25)'},
 }
 
 // ── Icon components ───────────────────────────────────────────
