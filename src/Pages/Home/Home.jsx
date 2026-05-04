@@ -10,24 +10,32 @@ import { EventsNext } from './Components/EventsNext';
 import { Referencias } from './Components/Referencias';
 import {Loading} from '../../Components/UI/Loading/Loading';
 
-
 export const Home = () => {
   const { events, loading, error } = useEvents(); 
 
-  return (
-    
-    <>
-    {
-     loading && <Loading/>
+  React.useEffect(() => {
+    // Cuando la URL tiene un hash, hacer scroll automático
+    const hash = window.location.hash;
+    if (hash) {
+      const element = document.querySelector(hash);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
     }
-    <Slider eventos={events}/>    
-    <EventsDestacados eventos={events}/>
-    <Stamps/>
-    <SingleEvents eventos={events}/>
-    <Type/>    
-    <EventsNext eventos={events}/>
-    <div ref={referenciasRef}><Referencias/></div>
-    
+  }, []);
+
+  return (
+    <>
+      {loading && <Loading/>}
+      <Slider eventos={events}/>    
+      <EventsDestacados eventos={events}/>
+      <Stamps/>
+      <SingleEvents eventos={events}/>
+      <Type/>    
+      <EventsNext eventos={events}/>
+      <div id="referencias">
+        <Referencias/>
+      </div>
     </>
   )
 }
