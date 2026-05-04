@@ -26,7 +26,8 @@ export const Home = () => {
     <SingleEvents eventos={events}/>
     <Type/>    
     <EventsNext eventos={events}/>
-    <Referencias/>
+    <div ref={referenciasRef}><Referencias/></div>
+    
     </>
   )
 }
