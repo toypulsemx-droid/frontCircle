@@ -29,7 +29,14 @@ const REGLAS = {
   nombre: { fn: (v) => v.trim().length >= 2, msg: "Mínimo 2 caracteres" },
   apellido: { fn: (v) => v.trim().length >= 2, msg: "Mínimo 2 caracteres" },
   email: { fn: (v) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v), msg: "Correo electrónico inválido" },
-  telefono: { fn: (v) => /^[\d\s+\-()]{10,15}$/.test(v.trim()), msg: "Mínimo 10 dígitos" },
+  // ✅ FIX: Contar solo dígitos, permitir caracteres especiales
+  telefono: { 
+    fn: (v) => {
+      const soloDigitos = v.replace(/\D/g, '');
+      return soloDigitos.length >= 10;
+    }, 
+    msg: "Mínimo 10 dígitos" 
+  },
 };
 const CAMPOS_REQUERIDOS = Object.keys(REGLAS);
 
