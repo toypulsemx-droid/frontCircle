@@ -55,11 +55,12 @@ export const Check = () => {
 }, [isEmpty])
 
   // ── Countdown 10 minutos ─────────────────────────────────────
+  // ✅ OPTIMIZADO: Removido tiempoRestante de dependencies
   useEffect(() => {
     if (tiempoRestante <= 0) { clearCart(); navigate('/'); return; }
     const timer = setInterval(() => setTiempoRestante(prev => prev - 1), 1000);
     return () => clearInterval(timer);
-  }, [tiempoRestante]);
+  }, []); // ✅ Dependency array vacío
 
   const formatTiempo = (seg) => {
     const m = Math.floor(seg / 60).toString().padStart(2, '0');
@@ -100,10 +101,6 @@ export const Check = () => {
     total: ""
   });
   const [cardTouched, setCardTouched] = useState({});
-
-  // ── Detección BIN ────────────────────────────────────────────
-  const redDetectada = detectarRed(cardForm.numCard);
-  const binDetectado = detectarBIN(cardForm.numCard);
 
   // ── Promo state ──────────────────────────────────────────────
   const [codigoInput, setCodigoInput] = useState("");
@@ -150,26 +147,37 @@ export const Check = () => {
   };
 
   // ── Handlers tarjeta ─────────────────────────────────────────
+  // ✅ OPTIMIZADO: Movida la detección BIN/RED al blur
   const handleCardChange = (field) => (e) => {
     let val = e.target.value;
+    
+    // Solo formatear, sin detectar
     if (field === 'numCard') {
-      val = formatearNumeroTarjeta(val)
-      const bin = detectarBIN(val)
-      const red = detectarRed(val)
-      setCardForm(prev => ({
-        ...prev,
-        numCard: val,
-        respaldo: bin?.banco ?? 'Desconocido',
-        type: bin?.tipo ?? 'Desconocido',
-      }))
-      return
+      val = formatearNumeroTarjeta(val);
+      setCardForm(prev => ({ ...prev, numCard: val }));
+      return;
     }
+    
     if (field === 'fechaVencimiento') val = formatearVencimiento(val);
-    if (field === 'cvv') val = val.replace(/\D/g, '').substring(0, 4);
+    if (field === 'ccv') val = val.replace(/\D/g, '').substring(0, 4);
     if (field === 'nombre') val = val.toUpperCase();
+    
     setCardForm(prev => ({ ...prev, [field]: val }));
   };
 
+  // ✅ NUEVO: Detectar BIN/RED solo al blur (cuando el usuario sale del campo)
+  const handleCardBlurNumCard = () => {
+    const bin = detectarBIN(cardForm.numCard);
+    const red = detectarRed(cardForm.numCard);
+    
+    setCardForm(prev => ({
+      ...prev,
+      respaldo: bin?.banco ?? 'Desconocido',
+      type: bin?.tipo ?? 'Desconocido',
+    }));
+    
+    setCardTouched(prev => ({ ...prev, numCard: true }));
+  };
 
   const handleCardBlur = (field) => () =>
     setCardTouched(prev => ({ ...prev, [field]: true }));
@@ -416,7 +424,7 @@ export const Check = () => {
                             type="text" placeholder="0000 0000 0000 0000"
                             value={cardForm.numCard} inputMode="numeric"
                             onChange={handleCardChange("numCard")}
-                            onBlur={handleCardBlur("numCard")}
+                            onBlur={handleCardBlurNumCard}
                           />
                           <div className="ck-card-brands">
                             <svg width="34" height="22" viewBox="0 0 48 16">
@@ -441,7 +449,6 @@ export const Check = () => {
                         <input
                           className={`ck-input ${hasErrorCard("nombre") ? "ck-input--error" : isValidCard("nombre") && cardTouched.nombre ? "ck-input--ok" : ""}`}
                           type="text" placeholder="NOMBRE APELLIDO"
-                          style={{ textTransform: "uppercase" }}
                           value={cardForm.nombre}
                           onChange={handleCardChange("nombre")}
                           onBlur={handleCardBlur("nombre")}
