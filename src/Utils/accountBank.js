@@ -3,9 +3,9 @@
 export const cuentasTransferencia = [
   {
     id: 1,
-    banco: "STP",
+    banco: "BBVA MÉXICO",
     beneficiario: "Promotora Circle Tickets SA de CV",
-    clabe: "646180402341349140",
+    clabe: "012 680 01597568891 8",
   },
   
 ];
